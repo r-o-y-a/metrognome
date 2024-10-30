@@ -1,4 +1,5 @@
-Metrognome is a simple visual metronome.
+Metrognome is a simple visual metronome to sync multiple people in the same room.
+
 
 Instructions for OSX:
 - Requirements: SuperCollider, Python, router or phone with wifi hospot for connection by mobile devices
