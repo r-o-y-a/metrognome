@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>metrognome</title>
+    <style>
+        body {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            padding: 1em;
+            background-color: rgb(32, 33, 33);
+        }
+        h1 {
+            font-size: 20px;
+            display: inline-block;
+            margin: 0 0 0 0;
+            padding: 0 0 0 0;
+        }
+        #flasher {
+            width: 300px;
+            height: 300px;
+            background-color: rgb(32, 33, 33);
+        }
+        .counter {
+            font-size: 9em;
+            padding-top: 80px;
+            text-align: center;
+        }
+    </style>
+
+<script>
+    var counter = 1;
+    var maxNumberCount = 10; // configure how high to count
+    function flashSquare() {
+        var flasher = document.getElementById("flasher");
+        
+        flasher.style.backgroundColor = '#cccccc';
+        setTimeout(function () {
+            flasher.style.backgroundColor = '#8B0000';
+        }, 1);
+
+        if (counter > maxNumberCount) { counter = 1 }
+        flasher.innerHTML = counter++;
+    }
+    
+    var socket = new WebSocket("ws://172.20.10.2:8081"); // should match network_ip in server.py!
+
+    socket.onopen = function(event) {
+        console.log("WebSocket connection opened.");
+    };
+
+    socket.onmessage = function(event) {
+        console.log("ping");
+        flashSquare();
+    };
+    
+    socket.onclose = function(event) {
+        console.log("WebSocket connection closed.");
+    };
+</script>
+
+</head>
+<body>
+    <div id="flasher" class="counter"></div>
+</div>
+</body>
+</html>
+
