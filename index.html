@@ -17,31 +17,30 @@
             margin: 0 0 0 0;
             padding: 0 0 0 0;
         }
-        #flasher {
-            width: 300px;
-            height: 300px;
-            background-color: rgb(32, 33, 33);
-        }
-        .counter {
+        #count {
             font-size: 9em;
             padding-top: 80px;
             text-align: center;
+        }
+        #gnome {
+            text-align: right;
         }
     </style>
 
 <script>
     var counter = 1;
     var maxNumberCount = 10; // configure how high to count
+   
     function flashSquare() {
-        var flasher = document.getElementById("flasher");
+        var count = document.getElementById("count");
         
-        flasher.style.backgroundColor = '#cccccc';
+        document.body.style.backgroundColor = '#cccccc';
         setTimeout(function () {
-            flasher.style.backgroundColor = '#8B0000';
+            document.body.style.backgroundColor = '#5f1010';
         }, 1);
 
         if (counter > maxNumberCount) { counter = 1 }
-        flasher.innerHTML = counter++;
+        count.innerHTML = counter++;
     }
     
     var socket = new WebSocket("ws://172.20.10.2:8081"); // should match network_ip in server.py!
@@ -62,7 +61,12 @@
 
 </head>
 <body>
-    <div id="flasher" class="counter"></div>
+    <div id="count"></div>
+    <div id="gnome">
+        <img src="gnome.png" width="150"/>
+    </div>
+
+    
 </div>
 </body>
 </html>
