@@ -6,7 +6,7 @@ Instructions for OSX:
 - In Terminal, run ifconfig to get the router/hotspot ip address
 - Edit server.py "network_ip" variable and index.html "socket" variable to match the ip address (keep all port numbers the same)
 - Run python3 server.py to start the web server
-- Connect to http://172.20.10.2:8080/ (you should see just a blank page, no error)
+- Connect to http://your_ip_address:8080/ (you should see just a blank page, no error)
 - Run metrognome.scd to start the metronome
 
 Configuration:
