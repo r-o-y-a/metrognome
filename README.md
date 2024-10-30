@@ -1,8 +1,10 @@
 Metrognome is a simple visual metronome to sync multiple people in the same room.
 
+It uses a host computer that runs SuperCollider and Python, and mobile devices view it through the web.
+
 
 Instructions for OSX:
-- Requirements: SuperCollider, Python, router or phone with wifi hospot for connection by mobile devices
+- Requirements: SuperCollider, Python, router or phone with wifi hospot that devices can connect to
 - Connect to hotspot from computer
 - In Terminal, run ifconfig to get the router/hotspot ip address
 - Edit server.py "network_ip" variable and index.html "socket" variable to match the ip address (keep all port numbers the same)
